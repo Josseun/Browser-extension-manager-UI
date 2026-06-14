@@ -2,13 +2,21 @@ import React from "react";
 import Card from "./UI/Card";
 import Data from "../../data.json";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function Body() {
+  const [filter, setFilter] = useState("all");
+
   const [extension, setExtension] = useState(() => {
     const saved = localStorage.getItem("extensions");
     return saved ? JSON.parse(saved) : Data;
   });
-  const [filter, setFilter] = useState("all");
+
+  useEffect(() => {
+    if (!localStorage.getItem("extensions")) {
+      setExtension(Data);
+    }
+  }, []);
 
   const filterExtensions = extension.filter((ext) => {
     if (filter === "active") return ext.isActive;

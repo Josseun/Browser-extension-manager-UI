@@ -1,8 +1,8 @@
 import React from "react";
 import useDarkmode from "@components/function/useDarkmode";
-import Logo from "@/images/logo.svg";
-import lightLogo from "@/images/icon-sun.svg";
-import darkLogo from "@/images/icon-moon.svg";
+import Logo from "/images/logo.svg";
+import lightLogo from "/images/icon-sun.svg";
+import darkLogo from "/images/icon-moon.svg";
 
 function Navbar() {
   const { darkMode, toggleDarkMode } = useDarkmode();
